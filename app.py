@@ -3,7 +3,7 @@ import openai
 import base64
 app = Flask(__name__)
 
-openai.api_key = "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"
+openai.api_key = "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"
 messages = [{"role": "system", "content": 'Respond to all input in  1 point short'}]
 transcript=""
 @app.route('/')
@@ -43,6 +43,7 @@ def chat():
 def reter():
     global messages
     transcript= request.form['audioI']
+    
     
     messages.append({"role": "user", "content": transcript})
 

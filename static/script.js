@@ -55,8 +55,9 @@ $(document).ready(function () {
                 data: { 'audioI': AUDIO },
                 success: function (response) {
                     useraudio = response.response;
-                    $('#chat-messages').append('<div class="user-message">' + useraudio + '</div>');
-                    $('#chat-messages').scrollTop($('#chat-messages')[0].scrollHeight);
+                    console.log(useraudio);
+                    $('#chat-messages').append('<div class="message"><div class="content sent">'+useraudio+'</div></div>');
+                    // $('#chat-messages').scrollTop($('#chat-messages')[0].scrollHeight);
                     retio(useraudio);
 
                 },
@@ -76,8 +77,10 @@ $(document).ready(function () {
                 data: { 'audioI': txt },
                 success: function (response) {
                     useraudio = response.response;
-                    $('#chat-messages').append('<div class="chatbot-message">' + useraudio + '</div>');
-                    $('#chat-messages').scrollTop($('#chat-messages')[0].scrollHeight);
+                    console.log(useraudio);
+                    $('#chat-messages').append('<div class="message"><div class="content received">'+useraudio+'</div></div>');
+                    // $('#chat-messages').scrollTop($('#chat-messages')[0].scrollHeight);
+
                 },
                 error: function (error) {
                     console.log(error);

@@ -1,25 +1,45 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-    <title>Chat Page</title>
-    <!-- <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}"> -->
-    <link rel="stylesheet" type="text/css" href="../static/styles.css">
+    <meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat App</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Monoton&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Monoton&family=Roboto+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="static/styles.css">
 </head>
+
 <body>
+    
     <div class="chat-container">
         <div class="chat-header">
-            <h1>Chat Page</h1>
+            <h2>ASSISTANT</h2>
         </div>
-        <div id="chat-messages" class="chat-messages"></div>
-        <div class="chat-input">
-            
-            <button id="record-button" class="record-button"></button>
-            
-        </div>
-    </div>
+        <div id="chat-messages" class="chat-messages">
+            <div class="message">
 
+                <div class="content received">Hello!</div>
+
+            </div>
+        </div>
+        
+    </div>
+    
+    <footer>
+        <div class="centered-button">
+          <button id ="record-button" class="record-button">Record</button>
+        </div>
+      </footer>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdn.rawgit.com/mattdiamond/Recorderjs/08e7abd9/dist/recorder.js"></script>
+    <!-- <script src="https://cdn.rawgit.com/mattdiamond/Recorderjs/08e7abd9/dist/recorder.js"></script> -->
     <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
+
 </html>
