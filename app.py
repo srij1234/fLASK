@@ -1,9 +1,14 @@
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, render_template, request, jsonify,redirect
 import openai
 import base64
 app = Flask(__name__)
+@app.before_request
+def redirect_to_https():
+    if request.headers.get('X-Forwarded-Proto') == 'http':
+        url = request.url.replace('http://', 'https://', 1)
+        return redirect(url, code=301)
 
-openai.api_key = "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"
+openai.api_key = "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"
 messages = [{"role": "system", "content": 'Respond to all input in  1 point short'}]
 transcript=""
 @app.route('/')
@@ -60,5 +65,5 @@ def reter():
     return jsonify({'response': chat_transcript})
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='0.0.0.0', port=5000)
     

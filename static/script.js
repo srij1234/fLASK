@@ -42,7 +42,26 @@ $(document).ready(function () {
         }
     });
 
+    
+    const message = new SpeechSynthesisUtterance();
 
+    
+    function handleError(error) {
+      console.error('Speech synthesis error:', error);
+      
+    }
+    function speakText(text) {
+      
+      const maxChunkLength = 200; 
+      
+
+      var chunks=text.split('. ');
+      chunks.forEach(chunk => {
+        const utterance = new SpeechSynthesisUtterance(chunk);
+        utterance.onerror = handleError; 
+        speechSynthesis.speak(utterance);
+      });
+    }
 
 
     function CHATIO(AUDIO) {
@@ -80,7 +99,7 @@ $(document).ready(function () {
                     console.log(useraudio);
                     $('#chat-messages').append('<div class="message"><div class="content received">'+useraudio+'</div></div>');
                     // $('#chat-messages').scrollTop($('#chat-messages')[0].scrollHeight);
-
+                    speakText(useraudio); 
                 },
                 error: function (error) {
                     console.log(error);
