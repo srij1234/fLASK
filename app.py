@@ -8,7 +8,7 @@ def redirect_to_https():
         url = request.url.replace('http://', 'https://', 1)
         return redirect(url, code=301)
 
-openai.api_key = "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"
+openai.api_key = "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"
 messages = [{"role": "system", "content": 'Respond to all input in  1 point short'}]
 transcript=""
 @app.route('/')
@@ -65,5 +65,5 @@ def reter():
     return jsonify({'response': chat_transcript})
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000)
+    app.run(host='0.0.0.0', port=5020)
     
